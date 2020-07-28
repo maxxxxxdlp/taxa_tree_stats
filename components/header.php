@@ -24,7 +24,7 @@ if(!file_exists(WORKING_LOCATION))
 
 
 
-function head(){
+function head($extra=''){
 
 ?><!-- Developed by Specify Software (https://www.sustain.specifysoftware.org/) -->
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ function head(){
 	<head>
 
 		<meta charset="utf-8">
-		<title>Taxa Tree Generatos Stats</title>
+		<title>Taxa Tree Generator Stats</title>
 		<meta
 				name="viewport"
 				content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -49,16 +49,16 @@ function head(){
 				href="https://sp7demofish.specifycloud.org/static/img/fav_icon.png">
 		<link
 				rel="stylesheet"
-				href="<?=LINK?>static/css/main<?=CSS?>">
-		<link
-				rel="stylesheet"
 				href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
 				integrity="sha256-aAr2Zpq8MZ+YA/D6JtRD3xtrwpEz2IqOS+pWD/7XKIw="
 				crossorigin="anonymous"/>
+		<link
+				rel="stylesheet"
+				href="<?=LINK?>static/css/main<?=CSS?>">
 		<script
 				src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"
 				integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
-				crossorigin="anonymous"></script>
+				crossorigin="anonymous"></script> <?=$extra?>
 
 	</head>
 	<body class="mb-4"> <?php

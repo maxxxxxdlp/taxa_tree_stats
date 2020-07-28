@@ -1,6 +1,7 @@
 <?php
 
 require_once('../components/header.php');
+head();
 
 
 if(!array_key_exists('ip',$_GET))
@@ -9,7 +10,6 @@ if(!array_key_exists('ip',$_GET))
 $ip_address = $_GET['ip'];
 
 $ip_data = json_decode(file_get_contents("http://ip-api.com/json/".$ip_address."?fields=country,regionName,city,org,reverse"),true);
-
 $column_mapping = [
 		'ip' => 'IP Address',
 		'country' => 'Country',

@@ -21,7 +21,7 @@ if(CONFIGURATION==='localhost'){
 	# Set this to an empty folder
 	# Make sure the web server has write permissions to this folder
 	# **Warning!** All of the files present in this directory would be deleted
-	define('WORKING_LOCATION','/Users/mambo/Downloads/taxa_stats/');
+	define('WORKING_LOCATION','/Users/mambo/Downloads/taxa_tree_stats/');
 
 }
 
@@ -29,6 +29,6 @@ elseif(CONFIGURATION==='production') { # these settings would be used in product
 
 	define('LINK', 'https://taxon.specifysoftware.org/stats/');
 
-	define('WORKING_LOCATION','/usr/share/nginx/data/taxa_stats/');
+	define('WORKING_LOCATION','/usr/share/nginx/data/taxa_tree_stats/');
 
 }

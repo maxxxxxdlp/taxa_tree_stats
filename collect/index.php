@@ -1,19 +1,67 @@
 <?php
 
+require_once('../components/header.php');
+
 //site
 //ip
-//tree
+//ranks
 //options
+//tree
+
+//validate incoming data
+ob_start();
+var_dump($_POST
+);
+$var_dump = ob_get_contents();
+ob_end_clean();
+file_put_contents(WORKING_LOCATION.'errors.log',$var_dump);
+
+if( count($_POST)==0 ||
+
+   !array_key_exists('site',$_POST) ||
+   !in_array($_POST['site'],array_keys(SITES_DICTIONARY)) ||
+
+   !array_key_exists('ip',$_POST) ||
+   !preg_match('/((1?\d{1,2}|2[0-5]{1,2})\.){3}(1?\d{1,2}|2[0-5]{1,2})/',$_POST['ip']) ||
+
+   (
+   	    array_key_exists('ranks',$_POST) &&
+        (
+            !is_array($_POST['ranks']) ||
+             count($_POST['ranks'])>100 ||
+            !preg_match('/[A-Za-z]{0,20000}/',implode('a',$_POST['ranks']))
+	    )
+   ) ||
+
+   !array_key_exists('options',$_POST) ||
+   !is_array($_POST['options']) ||
+    count($_POST['options'])>50 ||
+   !preg_match('/[a-z_]{0,300}/',implode('a',array_keys($_POST['options']))) ||
+
+   !array_key_exists('tree',$_POST) ||
+   (
+   	    !is_string($_POST['tree']) &&
+        !is_array($_POST['tree'])
+   ) ||
+   (     is_string($_POST['tree']) &&
+         strlen($_POST['tree'])>300
+   ) ||
+   (     is_array($_POST['tree']) &&
+         count($_POST['tree'])>100
+   )
+)
+	exit('Invalid POST request');
 
 $date = time();
-$data = $_POST['payload'];
+$_POST['date'] = $date;
+$data = json_encode($_POST);
 $day = floor($date/86400);
-$file_name = $day.'.data';
+$file_name = WORKING_LOCATION.$day.'.data';
 
 if(!file_exists($file_name))
 	file_put_contents($file_name,$data);
 else {
 	$file = fopen($file_name, 'a');
-	fwrite($file, $data);
+	fwrite($file, $data."\n");
 	fclose($file);
 }

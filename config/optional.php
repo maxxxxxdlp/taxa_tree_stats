@@ -21,23 +21,23 @@ define('SITES_DICTIONARY',[
 	'gbif' => 'GBIF Backbone Taxonomy',
 	'col' => 'CoL',
 	'col_upload' => 'CoL (zip file upload)',
-	'itis' => 'CoL (zip file upload)',
+	'itis' => 'ITIS',
 	'gbif_col' => 'GBIF Catalogue of Life',
 ]);
 
 define('OPTIONS_DICTIONARY',[
-	'include_guids' => 'Include GUIDs',
-	'include_authors' => 'Include Authors',
-	'include_sources' => 'Include Sources',
-	'include_common_names' => 'Include links to source',
+	'include_authors' => 'Include authors',
+	'include_sources' => 'Include sources',
+	'include_common_names' => 'Include common names',
 	'fill_in_links' => 'Include links to source',
 	'use_file_splitter' => 'Use file splitter',
-	'exclude_extinct' => 'Use file splitter',
+	'exclude_extinct' => 'Exclude extinct taxa',
 ]);
 
 define('DATE_FORMATTER','Y F j D');
 
-$files_destination = WORKING_LOCATION.'data/';
+
+define('STATS_URL',LINK.'../stats/collect/');
 
 
 # Specifies background and border colors for charts
