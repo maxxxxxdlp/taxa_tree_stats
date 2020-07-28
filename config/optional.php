@@ -1,5 +1,6 @@
 <?php
 
+# List of IPs, records with which would not be show (Though, the data would still be collected)
 define('IPS_TO_EXCLUDE',[
 	'129.237.229.',
 	'129.237.201.',
@@ -17,6 +18,7 @@ define('IPS_TO_EXCLUDE',[
 	'172.58.142.',
 ]);
 
+# Dictionary of human-friendly names for of data sources
 define('SITES_DICTIONARY',[
 	'gbif' => 'GBIF Backbone Taxonomy',
 	'col' => 'CoL',
@@ -25,6 +27,7 @@ define('SITES_DICTIONARY',[
 	'gbif_col' => 'GBIF Catalogue of Life',
 ]);
 
+# Dictionary of human-friendly names for of custom options that can be used when creating a tree
 define('OPTIONS_DICTIONARY',[
 	'include_authors' => 'Include authors',
 	'include_sources' => 'Include sources',
@@ -34,10 +37,9 @@ define('OPTIONS_DICTIONARY',[
 	'exclude_extinct' => 'Exclude extinct taxa',
 ]);
 
+# Formatter for a data (Would be used as labels for charts). See https://www.php.net/manual/en/datetime.format.php
 define('DATE_FORMATTER','Y F j D');
 
-
-define('STATS_URL',LINK.'../stats/collect/');
 
 
 # Specifies background and border colors for charts

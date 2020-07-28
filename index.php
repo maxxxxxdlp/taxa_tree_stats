@@ -84,9 +84,6 @@ for($i = $days_to_show; $i >= 0; $i--){
 
 }
 
-if(count($sites)==0)
-	die('No data found');
-
 $final_sites_stats = [];
 foreach($sites_stats as $site_name => $site_stats){
 	$final_sites_stats[$site_name] = [[], []];
@@ -197,6 +194,8 @@ function extract_tree_from_file_name($file_name){
 
 }
 
+if($days===[])
+	$days = [0];
 
 $days_count = count($days);
 $oldest_record = unix_day_to_human_day($days[0]);
@@ -227,6 +226,9 @@ $newest_record = unix_day_to_human_day($days[$days_count-1]); ?>
 	const link = '<?=LINK?>';
 </script> <?php
 
+
+if(count($sites)==0)
+	die('No data found');
 
 $chart_id = 0;
 foreach($sites as $site_name => $site_data){ ?>
