@@ -51,7 +51,7 @@ for($i = $days_to_show; $i >= 0; $i--){
 
 	$file_data = file_get_contents($file_path);
 	$file_data = trim($file_data);
-	$file_data = explode("\n", $file_data);
+	$file_data = explode(PHP_EOL, $file_data);
 
 	foreach($file_data as $data){
 
@@ -87,6 +87,8 @@ for($i = $days_to_show; $i >= 0; $i--){
 $final_sites_stats = [];
 foreach($sites_stats as $site_name => $site_stats){
 	$final_sites_stats[$site_name] = [[], []];
+
+	$site_stats = array_reverse($site_stats);
 
 	foreach($site_stats as $day => $count){
 		$final_sites_stats[$site_name][0][] = date(DATE_FORMATTER, $day * 86400);

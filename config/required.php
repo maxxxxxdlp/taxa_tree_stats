@@ -1,11 +1,10 @@
 <?php
 
-
 if(strpos($_SERVER['HTTP_HOST'],'localhost')!==FALSE){
 	define('DEVELOPMENT',TRUE);
 	define('CONFIGURATION','localhost');
 }
-elseif($_SERVER['SERVER_ADDR']=='129.237.201.1'){
+elseif($_SERVER['HTTP_HOST']=='biwebdbtest.nhm.ku.edu'){
 	define('DEVELOPMENT',FALSE);
 	define('CONFIGURATION','production');
 }
@@ -27,8 +26,8 @@ if(CONFIGURATION==='localhost'){
 
 elseif(CONFIGURATION==='production') { # these settings would be used in production
 
-	define('LINK', 'https://taxon.specifysoftware.org/stats/');
+	define('LINK', 'http://biwebdbtest.nhm.ku.edu/sp7-stats/taxa_stats/');
 
-	define('WORKING_LOCATION','/usr/share/nginx/data/taxa_tree_stats/');
+	define('WORKING_LOCATION','/home/sp7-stats/tmp/taxa_stats/');
 
 }
