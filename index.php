@@ -88,8 +88,6 @@ $final_sites_stats = [];
 foreach($sites_stats as $site_name => $site_stats){
 	$final_sites_stats[$site_name] = [[], []];
 
-	$site_stats = array_reverse($site_stats);
-
 	foreach($site_stats as $day => $count){
 		$final_sites_stats[$site_name][0][] = date(DATE_FORMATTER, $day * 86400);
 		$final_sites_stats[$site_name][1][] = $count;
@@ -260,6 +258,8 @@ foreach($sites as $site_name => $site_data){ ?>
 					</tr>
 				</thead>
 				<tbody> <?php
+
+					$site_data = array_reverse($site_data);
 
 					foreach($site_data as $record){
 
