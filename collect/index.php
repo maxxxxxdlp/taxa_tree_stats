@@ -2,21 +2,8 @@
 
 require_once('../components/header.php');
 
-//site
-//ip
-//ranks
-//options
-//tree
-
 //validate incoming data
-ob_start();
-var_dump($_POST
-);
-$var_dump = ob_get_contents();
-ob_end_clean();
-file_put_contents(WORKING_LOCATION.'errors.log',$var_dump);
-
-if( count($_POST)==0 ||
+if(count($_POST)==0 ||
 
    !array_key_exists('site',$_POST) ||
    !in_array($_POST['site'],array_keys(SITES_DICTIONARY)) ||
@@ -58,10 +45,4 @@ $data = json_encode($_POST);
 $day = floor($date/86400);
 $file_name = WORKING_LOCATION.$day.'.data';
 
-if(!file_exists($file_name))
-	file_put_contents($file_name,$data);
-else {
-	$file = fopen($file_name, 'a');
-	fwrite($file, $data."\n");
-	fclose($file);
-}
+file_put_contents($file_name,$data.PHP_EOL,FILE_APPEND | LOCK_EX);

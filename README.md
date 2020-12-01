@@ -1,9 +1,6 @@
 # Taxa Tree Generator (Catalogue of Life)
 This website generates a taxa tree compatible with Workbench and Wizzard from [Specify 6](https://github.com/specify/specify6) [Specify 7](https://github.com/specify/specify7).
 
-## Data credit
-The data used by this tool comes from [Catalogue of Life](http://catalogueoflife.org/).
-
 ## Requirements
 1. PHP 7.2+ (older versions may work)
 1. [PHP Zip](https://stackoverflow.com/questions/18774568/installing-php-zip-extension)

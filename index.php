@@ -10,7 +10,7 @@ require_once('components/charts.php');
 $date = time();
 $today = intval(floor($date / 86400));
 
-if(!array_key_exists('days', $_GET) || !is_numeric(['days']) || $_GET['days'] < 1)
+if(!array_key_exists('days', $_GET) || !is_numeric($_GET['days']) || $_GET['days'] < 1)
 	$days_to_show = 30;
 else
 	$days_to_show = $_GET['days'];
@@ -51,7 +51,7 @@ for($i = $days_to_show; $i >= 0; $i--){
 
 	$file_data = file_get_contents($file_path);
 	$file_data = trim($file_data);
-	$file_data = explode("\n", $file_data);
+	$file_data = explode(PHP_EOL, $file_data);
 
 	foreach($file_data as $data){
 
@@ -258,6 +258,8 @@ foreach($sites as $site_name => $site_data){ ?>
 					</tr>
 				</thead>
 				<tbody> <?php
+
+					$site_data = array_reverse($site_data);
 
 					foreach($site_data as $record){
 
